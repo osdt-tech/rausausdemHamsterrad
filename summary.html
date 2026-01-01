@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zusammenfassung – Stress loslassen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Sora:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #1b1b18;
+        --muted: #4d4a44;
+        --accent: #c25a2a;
+        --accent-dark: #813417;
+        --paper: #f7f1e6;
+        --leaf: #2f4b3a;
+        --mist: rgba(247, 241, 230, 0.65);
+        --shadow: 0 18px 40px rgba(26, 23, 18, 0.18);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Sora", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(1200px 700px at 10% 10%, #e7d9c4 0%, transparent 65%),
+          radial-gradient(900px 600px at 90% 0%, #c6d7c3 0%, transparent 60%),
+          linear-gradient(135deg, #fdf8f0 0%, #f2ebe1 45%, #efe6d9 100%);
+        min-height: 100vh;
+        padding: 48px 20px 72px;
+      }
+
+      .page {
+        max-width: 1080px;
+        margin: 0 auto;
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+        margin-bottom: 40px;
+        position: relative;
+        padding: 36px 36px 40px;
+        background: var(--mist);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      header::before,
+      header::after {
+        content: "";
+        position: absolute;
+        border-radius: 999px;
+        filter: blur(0px);
+        opacity: 0.35;
+        z-index: 0;
+      }
+
+      header::before {
+        width: 220px;
+        height: 220px;
+        background: #d58b5b;
+        top: -80px;
+        right: -60px;
+      }
+
+      header::after {
+        width: 260px;
+        height: 260px;
+        background: #8ab0a1;
+        bottom: -120px;
+        left: -80px;
+      }
+
+      .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: var(--accent-dark);
+        position: relative;
+        z-index: 1;
+      }
+
+      h1 {
+        font-family: "Fraunces", serif;
+        font-size: clamp(2.4rem, 3vw + 1rem, 3.6rem);
+        line-height: 1.05;
+        margin: 0;
+        position: relative;
+        z-index: 1;
+      }
+
+      .subtitle {
+        font-size: 1.05rem;
+        color: var(--muted);
+        max-width: 720px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 22px;
+        font-size: 0.95rem;
+        color: var(--leaf);
+        position: relative;
+        z-index: 1;
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+      }
+
+      section {
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 22px;
+        padding: 24px;
+        box-shadow: 0 12px 30px rgba(37, 32, 25, 0.12);
+        backdrop-filter: blur(4px);
+        min-height: 220px;
+      }
+
+      h2 {
+        font-family: "Fraunces", serif;
+        font-size: 1.4rem;
+        margin: 0 0 12px;
+        color: var(--accent-dark);
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      li + li {
+        margin-top: 10px;
+      }
+
+      .quote {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        background: linear-gradient(140deg, #f7e5d6 0%, #f3f0e6 70%);
+        border: 1px solid rgba(193, 90, 42, 0.2);
+      }
+
+      .quote p {
+        margin: 0;
+        font-family: "Fraunces", serif;
+        font-size: 1.4rem;
+        color: var(--accent-dark);
+      }
+
+      .quote span {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .tag {
+        background: rgba(47, 75, 58, 0.08);
+        color: var(--leaf);
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 14px;
+        color: var(--muted);
+      }
+
+      .timeline div {
+        background: rgba(255, 255, 255, 0.65);
+        padding: 14px;
+        border-left: 3px solid var(--accent);
+        border-radius: 12px;
+      }
+
+      .stack {
+        display: grid;
+        gap: 10px;
+      }
+
+      .stack strong {
+        color: var(--ink);
+      }
+
+      .footer {
+        margin-top: 36px;
+        font-size: 0.9rem;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        animation: rise 0.8s ease forwards;
+      }
+
+      .reveal.delay-1 {
+        animation-delay: 0.1s;
+      }
+
+      .reveal.delay-2 {
+        animation-delay: 0.2s;
+      }
+
+      .reveal.delay-3 {
+        animation-delay: 0.3s;
+      }
+
+      .reveal.delay-4 {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes rise {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 700px) {
+        header {
+          padding: 28px 22px;
+        }
+
+        .meta {
+          flex-direction: column;
+          gap: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="reveal">
+        <div class="eyebrow">Masterclass-Zusammenfassung</div>
+        <h1>Stress loslassen – aus dem Hamsterrad in die Stille</h1>
+        <p class="subtitle">
+          Dieter Lange beschreibt Stress nicht als äußere Situation, sondern als
+          Reaktion. Der Ausweg führt über Wahrnehmung, Akzeptanz und das Finden
+          der eigenen Richtung statt über noch mehr Tun.
+        </p>
+        <div class="meta">
+          <div>
+            Video:
+            <a href="https://www.youtube.com/watch?v=P9gzgU8lo28">P9gzgU8lo28</a>
+          </div>
+          <div>Sprache: Deutsch (Auto-Transkript)</div>
+          <div>Schwerpunkt: Selbstführung & Lebensschule</div>
+        </div>
+      </header>
+
+      <main>
+        <section class="quote reveal delay-1">
+          <p>„Widerstand führt zu Persistenz.“</p>
+          <span>
+            Kernaussage: Was wir akzeptieren, löst sich eher, als was wir
+            bekämpfen.
+          </span>
+        </section>
+
+        <section class="reveal delay-2">
+          <h2>Die Grundthese</h2>
+          <ul>
+            <li>Stress entsteht durch unsere Deutung, nicht durch die Situation.</li>
+            <li>Das Hamsterrad ist Wiederholung ohne Begeisterung.</li>
+            <li>Burnout droht, wenn wir gegen inneren Widerstand arbeiten.</li>
+            <li>Akzeptanz und nüchterne Beschreibung entladen Spannung.</li>
+          </ul>
+        </section>
+
+        <section class="reveal delay-3">
+          <h2>Aus dem „Machen“ heraus</h2>
+          <ul>
+            <li>Neutralität ist der Drehpunkt zwischen Vorwärts- und Rückwärtsgang.</li>
+            <li>„Nicht tun“ heißt: Raum für Stille und Einsicht schaffen.</li>
+            <li>Wahre Veränderung beginnt mit Sein, nicht mit Aktionismus.</li>
+            <li>Die Stille ist Quelle für Ideen, Klarheit und Richtung.</li>
+          </ul>
+        </section>
+
+        <section class="reveal delay-4">
+          <h2>Charakter & Talente</h2>
+          <div class="stack">
+            <div><strong>Temperamente:</strong> cholerisch, sanguinisch, melancholisch, phlegmatisch.</div>
+            <div><strong>Realismus:</strong> Wir sind gebunden an unseren Charakter, aber nicht daran gefesselt.</div>
+            <div><strong>Talente:</strong> Stressarm wird es, wenn wir mit unseren Stärken arbeiten.</div>
+          </div>
+          <div class="tag-row">
+            <span class="tag">Selbstwahrnehmung</span>
+            <span class="tag">Stärken nutzen</span>
+            <span class="tag">Widerstand senken</span>
+          </div>
+        </section>
+
+        <section class="reveal delay-2">
+          <h2>Leading Edge – was hebt dich heraus</h2>
+          <ul>
+            <li>Surprise: Erwartungen übertreffen.</li>
+            <li>Fascinate: Menschen verzaubern statt nur informieren.</li>
+            <li>Entertain: Inhalte mit Energie und Leichtigkeit tragen.</li>
+            <li>Engage: Menschen aktiv einbeziehen und erfahren lassen.</li>
+            <li>Challenge: gezielt fordern, ohne zu überfordern.</li>
+          </ul>
+        </section>
+
+        <section class="reveal delay-3">
+          <h2>Die Balance der Natur</h2>
+          <div class="timeline">
+            <div>Aktivität und Ruhe wechseln sich ab – wie die Katze, die jagt und dann voll entspannt.</div>
+            <div>Positiver Stress entsteht durch bewusst gesetzte Herausforderungen.</div>
+            <div>Überforderung kippt in Erschöpfung und Hamsterrad.</div>
+          </div>
+        </section>
+
+        <section class="reveal delay-4">
+          <h2>Nordstern statt Zielchaos</h2>
+          <ul>
+            <li>Viele Ziele konkurrieren – Orientierung fehlt.</li>
+            <li>Ein Nordstern gibt Richtung statt starrer Checklisten.</li>
+            <li>„Reduce to the maximum“: Ballast abwerfen, Klarheit gewinnen.</li>
+          </ul>
+        </section>
+      </main>
+
+      <div class="footer reveal delay-3">
+        Diese Zusammenfassung basiert auf dem gesprochenen Transkript (Auto-Untertitel).
+      </div>
+    </div>
+  </body>
+</html>

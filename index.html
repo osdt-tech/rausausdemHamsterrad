@@ -189,6 +189,37 @@
         letter-spacing: 0.02em;
       }
 
+      .temperaments {
+        display: grid;
+        gap: 12px;
+        margin-top: 8px;
+      }
+
+      .temperament {
+        background: rgba(255, 255, 255, 0.65);
+        padding: 12px;
+        border-left: 3px solid var(--accent);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .temperament:hover {
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 4px 12px rgba(37, 32, 25, 0.1);
+      }
+
+      .temperament-name {
+        font-weight: 600;
+        color: var(--accent-dark);
+        margin-bottom: 4px;
+      }
+
+      .temperament-desc {
+        font-size: 0.9rem;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
       .timeline {
         display: grid;
         gap: 14px;
@@ -311,7 +342,25 @@
         <section class="reveal delay-4">
           <h2>Charakter & Talente</h2>
           <div class="stack">
-            <div><strong>Temperamente:</strong> cholerisch, sanguinisch, melancholisch, phlegmatisch.</div>
+            <div><strong>Temperamente:</strong></div>
+            <div class="temperaments">
+              <div class="temperament">
+                <div class="temperament-name">Cholerisch</div>
+                <div class="temperament-desc">Energisch, zielorientiert, durchsetzungsstark. Neigt zu schnellen Entscheidungen und direkter Kommunikation. Findet Erfüllung in Herausforderungen und Führungsrollen.</div>
+              </div>
+              <div class="temperament">
+                <div class="temperament-name">Sanguinisch</div>
+                <div class="temperament-desc">Lebhaft, enthusiastisch, kontaktfreudig. Liebt soziale Interaktion und Abwechslung. Inspiriert andere durch Optimismus und Begeisterungsfähigkeit.</div>
+              </div>
+              <div class="temperament">
+                <div class="temperament-name">Melancholisch</div>
+                <div class="temperament-desc">Tiefgründig, detailorientiert, reflektiert. Strebt nach Perfektion und Bedeutung. Schätzt Qualität, Ordnung und analytisches Denken.</div>
+              </div>
+              <div class="temperament">
+                <div class="temperament-name">Phlegmatisch</div>
+                <div class="temperament-desc">Ruhig, ausgeglichen, harmonieliebend. Bewahrt Gelassenheit in stressigen Situationen. Wirkt stabilisierend und vermittelnd im Team.</div>
+              </div>
+            </div>
             <div><strong>Realismus:</strong> Wir sind gebunden an unseren Charakter, aber nicht daran gefesselt.</div>
             <div><strong>Talente:</strong> Stressarm wird es, wenn wir mit unseren Stärken arbeiten.</div>
           </div>
